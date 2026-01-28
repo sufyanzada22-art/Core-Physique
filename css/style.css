@@ -1,0 +1,655 @@
+/* CORE PHYSIQUE - Professional Gym Website Stylesheet */
+
+:root {
+    --primary: #ff6b35;
+    --secondary: #4ecdc4;
+    --accent: #f7b731;
+    --dark: #0a0a0a;
+    --darker: #000;
+    --light: #fff;
+    --gray: #b8b8b8;
+    --card: #1a1a1a;
+}
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+}
+
+.container {max-width: 1400px; margin: 0 auto; padding: 0 20px;}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary);
+}
+
+.navbar .container {display: flex; justify-content: space-between; align-items: center;}
+
+.nav-brand h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.nav-brand span {color: var(--primary);}
+
+.nav-menu {display: flex; list-style: none; gap: 40px;}
+
+.nav-menu a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {width: 100%;}
+.nav-menu a:hover, .nav-menu a.active {color: var(--primary);}
+
+.join-btn {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--light);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.join-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    margin-top: 70px;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(50px, 10vw, 120px);
+    line-height: 0.9;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--gray);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 18px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--light);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,107,53,0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--light);
+    color: var(--light);
+}
+
+.btn-secondary:hover {
+    background: var(--light);
+    color: var(--dark);
+}
+
+/* Features */
+.features {
+    padding: 120px 0;
+    background: var(--darker);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.feature-card {
+    background: var(--card);
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.4s;
+    border: 2px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 50px rgba(255,107,53,0.2);
+}
+
+.feature-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.feature-card p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+/* Pricing */
+.membership {
+    padding: 120px 0;
+    background: var(--dark);
+}
+
+.membership h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 56px;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.pricing-card {
+    background: var(--card);
+    padding: 50px 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.4s;
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 25px 60px rgba(255,107,53,0.3);
+}
+
+.pricing-card.featured {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.pricing-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.price {
+    margin: 30px 0;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 48px;
+    color: var(--primary);
+}
+
+.price .amount {font-size: 64px;}
+
+.pricing-card ul {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.pricing-card li {
+    padding: 12px 0;
+    color: var(--gray);
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-pricing {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-pricing:hover {
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* CTA */
+.cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.btn-primary-large {
+    display: inline-block;
+    padding: 20px 50px;
+    background: var(--light);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-primary-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+.footer {
+    background: var(--darker);
+    padding: 80px 0 30px;
+    border-top: 2px solid var(--primary);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.footer h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.footer h3 span {color: var(--primary);}
+
+.footer h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer ul {list-style: none;}
+
+.footer li {margin-bottom: 12px;}
+
+.footer a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {color: var(--primary);}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* Page Header */
+.page-header {
+    padding: 180px 0 100px;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    margin-top: 70px;
+}
+
+.page-header h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 64px;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.page-header p {
+    font-size: 18px;
+    color: var(--gray);
+}
+
+/* About Page */
+.about-section {padding: 100px 0;}
+
+.about-section h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 48px;
+    margin: 40px 0 20px;
+}
+
+.mission-grid, .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.mission-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+}
+
+.mission-card h3, .values-grid h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.values-grid > div {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Classes Page */
+.classes-section {padding: 100px 0;}
+
+.classes-grid-full {
+    display: grid;
+    gap: 30px;
+}
+
+.class-card-full {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.4s;
+}
+
+.class-card-full:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.class-card-full h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.class-card-full p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.duration {
+    display: inline-block;
+    background: rgba(255,107,53,0.2);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Trainers Page */
+.trainers-section {padding: 100px 0;}
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.trainer-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.4s;
+}
+
+.trainer-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+}
+
+.trainer-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.role {
+    display: block;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.trainer-card p {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.specialties {
+    background: rgba(255,107,53,0.15);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Contact Page */
+.contact-section {padding: 100px 0;}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+.contact-info h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    padding: 15px 0;
+    font-size: 15px;
+    color: var(--gray);
+}
+
+.info-item strong {
+    color: var(--light);
+    margin-right: 10px;
+}
+
+.contact-form-box {
+    background: var(--card);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.contact-form-box h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: var(--dark);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    color: var(--light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+#contactForm input:focus,
+#contactForm select:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--light);
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {display: none;}
+    .hero-title {font-size: 48px;}
+    .pricing-grid {grid-template-columns: 1fr;}
+    .pricing-card.featured {transform: scale(1);}
+    .footer-grid {grid-template-columns: 1fr;}
+    .page-header h1 {font-size: 42px;}
+}
